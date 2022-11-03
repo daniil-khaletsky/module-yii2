@@ -40,7 +40,10 @@
         ]
     },
     "config": {
-        "classmap-authoritative": true
+        "classmap-authoritative": true,
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true
+        }
     },
     "repositories": [
         {

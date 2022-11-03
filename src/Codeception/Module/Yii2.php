@@ -18,6 +18,7 @@ use yii\db\ActiveRecordInterface;
 use yii\db\Connection;
 use yii\db\QueryInterface;
 use yii\db\Transaction;
+use yii\web\HttpException;
 
 /**
  * This module provides integration with [Yii framework](http://www.yiiframework.com/) (2.0).
@@ -184,6 +185,7 @@ class Yii2 extends Framework implements ActiveRecord, MultiSession, PartedModule
         'recreateApplication' => false,
         'closeSessionOnRecreateApplication' => true,
         'applicationClass' => null,
+        'httpExceptionClass' => HttpException::class,
     ];
 
     protected $requiredFields = ['configFile'];

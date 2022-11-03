@@ -89,6 +89,7 @@ class Yii2 extends Client
      */
     public $applicationClass = null;
 
+    public $httpExceptionClass = HttpException::class;
 
     private $emails = [];
 
@@ -367,7 +368,7 @@ class Yii2 extends Client
             $app->trigger($app::EVENT_AFTER_REQUEST);
             $response->send();
         } catch (\Exception $e) {
-            if ($e instanceof HttpException) {
+            if ($e instanceof $this->httpExceptionClass) {
                 // Don't discard output and pass exception handling to Yii to be able
                 // to expect error response codes in tests.
                 $app->errorHandler->discardExistingOutput = false;
